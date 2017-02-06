@@ -1,0 +1,99 @@
+
+#Marina E. JOhnson - mjohnson393
+
+#Problem 2 log_gamma_loop(n) 
+
+log_gamma_loop=function(n){
+  log_gamma=0
+  for (i in seq(1,(n-1),1)){
+    log_gamma=log_gamma+log(n-i)
+  }
+  return (log_gamma)
+}
+
+#Problem 3 log_gamma_recursive(n)
+
+log_gamma_recursive=function(n){
+  if (n<=1){
+    return (0)
+  }
+  else {
+    log1=log(n-1)
+    return (log1 + log_gamma_recursive(n-1))
+  }
+}
+
+log_gamma_recursive(5)
+
+#Problem 4 sum_log_gamma_loop
+sum_log_gamma_loop=function(n) {
+  sum_log_gamma=0
+  for (i in seq(1, n, 1)){
+    sum_log_gamma=sum_log_gamma+log_gamma_loop(n)
+  }
+  return (sum_log_gamma)
+}
+
+#Problem 4 sum_log_gamma_recursive
+sum_log_gamma_recursive=function(n) {
+  sum_log_gamma=0
+  for (i in seq(1, n, 1)){
+    sum_log_gamma=sum_log_gamma+log_gamma_recursive(n)
+  }
+  return (sum_log_gamma)
+}
+
+#Problem 5 Compare Results to Built-In R Function
+sum_log_gamma_lgamma=function(n) {
+  sum_log_gamma=0
+  for (i in seq(1, n, 1)){
+    sum_log_gamma=sum_log_gamma+lgamma(n)
+  }
+  return (sum_log_gamma)
+}
+
+df <- matrix(0, ncol = 3, nrow = (10000-1))
+run_times=data.frame(df)
+options(expressions = 50000)
+
+for (n in seq(2, 10000,1)){
+  time1=system.time(sum_log_gamma_loop(n))[1]
+  time2=system.time(sum_log_gamma_recursive(n))[1]
+  time3=system.time(sum_log_gamma_lgamma(n))[1]
+  run_times[n-1,1]=time1
+  run_times[n-1,1]=time2
+  run_times[n-1,3]=time3
+}
+
+
+#graph for problem 5
+
+install.packages('ggplot2')
+library(ggplot2)
+library("reshape2")
+r=run_times
+a=melt(r)
+a$n = seq(1:1999)
+ggplot(a, aes(y = value, x = n, colour=variable)) + geom_line() +
+  labs(x='n', y='run_times', title='run times of three natural log gamma')
+
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+
+
