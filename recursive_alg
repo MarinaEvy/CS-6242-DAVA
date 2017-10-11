@@ -1,7 +1,4 @@
 
-#Marina E. JOhnson - mjohnson393
-
-#Problem 2 log_gamma_loop(n) 
 
 log_gamma_loop=function(n){
   log_gamma=0
@@ -11,7 +8,7 @@ log_gamma_loop=function(n){
   return (log_gamma)
 }
 
-#Problem 3 log_gamma_recursive(n)
+
 
 log_gamma_recursive=function(n){
   if (n<=1){
@@ -25,7 +22,7 @@ log_gamma_recursive=function(n){
 
 log_gamma_recursive(5)
 
-#Problem 4 sum_log_gamma_loop
+
 sum_log_gamma_loop=function(n) {
   sum_log_gamma=0
   for (i in seq(1, n, 1)){
@@ -34,7 +31,7 @@ sum_log_gamma_loop=function(n) {
   return (sum_log_gamma)
 }
 
-#Problem 4 sum_log_gamma_recursive
+
 sum_log_gamma_recursive=function(n) {
   sum_log_gamma=0
   for (i in seq(1, n, 1)){
@@ -43,7 +40,7 @@ sum_log_gamma_recursive=function(n) {
   return (sum_log_gamma)
 }
 
-#Problem 5 Compare Results to Built-In R Function
+
 sum_log_gamma_lgamma=function(n) {
   sum_log_gamma=0
   for (i in seq(1, n, 1)){
