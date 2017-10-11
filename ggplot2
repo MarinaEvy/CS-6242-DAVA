@@ -1,6 +1,4 @@
-#MArina E. JOhnson - mjohnson393
 
-#problem 1
 install.packages('ggplot2') #upload ggplot2 library
 install.packages('plyr') #upload plyr library
 install.packages('reshape2')
